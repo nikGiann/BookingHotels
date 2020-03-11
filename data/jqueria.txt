@@ -1,0 +1,72 @@
+function init() {
+
+
+
+const URL = "https://api.myjson.com/bins/1gzta8";
+
+function handleSuccess(data) {
+    result = data;
+    $.each(result, function(k,v) {
+        displayResult(result[k],v)
+    });
+}
+
+function handleError(any) {
+    console.log('ERROR',any);
+}
+
+const options = {
+    url:URL,
+    success:handleSuccess,
+    error:handleError
+}
+
+
+$(function() {
+    const URL = "https://api.myjson.com/bins/1gzta8";
+    $.getJSON(URL, function(data) {
+     
+        });
+
+        $("#automplete-city" ).autocomplete({
+            source: ["Paris","Toulouz","Marseille"]
+         });
+
+
+    });
+
+const URL = "https://api.myjson.com/bins/1gzta8";
+let data;
+let cities;
+
+$.getJSON(URL, callback);
+
+
+function callback(data) {
+};
+
+const options = {
+    url:URL,
+    dataType:'JSON',
+    type:'GET',
+    success:handleSuccess,
+    error:handleError
+}
+
+function handleSuccess(data) {
+    result = data;
+    $(data.entries).each(function(key,value) {
+        console.log(value.city);
+    });
+}
+
+function handleError(any) {
+    console.log('ERROR',any);
+}
+
+
+const list = [];
+
+$.ajax(options);
+
+}

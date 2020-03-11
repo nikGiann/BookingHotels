@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 5</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/assignment5.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+<body>
+    <section id="header">
+        <div class="container-fluid">
+            <div class="row mx-1">
+                <div class="input-group" id="search">
+                    <span class="magnglass input-group-prepend white-bg">
+                        <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+                    </span>
+                    <label for="automplete-city"></label>
+                    <input id="autocomplete-city" class="form-control" type="text" aria-label="City"
+                        placeholder="Search">
+                    <div class="searchbtn input-group-append col-2">
+                        <button class="btn btn-info btn-block" type="submit">Search</button>
+                    </div>
+                </div>
+            </div>
+            <!-- DATES ROOM -->
+            <div class="row calendar w-100 m-0 p-0 py-2">
+                <div class="checkin input-group border-left-0 px-0 col-3 white-bg">
+                    <span id="checkindt"></span>
+                    <div class="input-group-text bg-transparent border-0"><i class="fa fa-calendar fa-lg"></i></div>
+                    <span id="checkin" class="mr-auto"><input id="checkindate" type="text"
+                            placeholder="Check-in"></span>
+                    <div class="chevron-in input-group-append border-0 col-1 px-0"><button id="onedayless"><i
+                                class="fa fa-chevron-left mr-2" aria-hidden="true"></i></button><button
+                            id="onedaymore"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="checkout input-group border-left-0 px-0 col-3 white-bg">
+                    <span id="checkoutdt"></span>
+                    <div class="input-group-text bg-transparent border-0"><i class="fa fa-calendar fa-lg"></i></div>
+                    <span id="checkout"><input id="checkoutdate" type="text" placeholder="Check-out"></span>
+                    <div class="chevron-out input-group-append border-0 col-1 px-0"><button id="outdayless"><i
+                                class="fa fa-chevron-left mr-2" aria-hidden="true"></i></button><button
+                            id="outdaymore"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <!-- Room Options -->
+                <div class="rooms input-group border px-0 col-3 white-bg">
+                    <div class="dashed d-flex justify-content-center align-items-center">
+                        <i class="fa fa-users" aria-hidden="true"></i><span class="font-weight-bold">
+                            <input class="border border-0 text-center" list="roomtypes" id="rooms" name="Rooms" placeholder="Family Rooms" /></span>
+                    </div>
+                </div>
+                <datalist id="roomtypes">
+                  </datalist>
+
+            </div>
+            <!-- Price Slider -->
+            <div class="row-fluid d-flex w-100 p-0 justify-content-around py-2">
+                <div id="price" class="right-border pr-2">
+                    <div class="d-flex justify-content-between" >
+                        <label for="priceRange">Price</label>
+                        <p id="pselected"></p>
+                    </div>
+                    <input id="priceRange" type="range" class="custom-range" min="0" max="2000">
+                </div>
+                <!-- PROPERTY RATING -->
+                <div id="property" class="btn-group right-border px-2">
+                    <label for="property">Property Type</label>
+                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Choose Type
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right px-2">
+                        <button id="onestar" class="dropdown-item" type="button"><i class="fa fa-star"></i></button>
+                        <button id="twostars" class="dropdown-item" type="button"><i class="fa fa-star"></i><i class="fa fa-star"></i></button>
+                        <button id="threestars" class="dropdown-item" type="button"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></button>
+                        <button id="fourstars" class="dropdown-item" type="button"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></button>
+                        <button id="fivestars" class="dropdown-item" type="button"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+                <div id="rating" class="btn-group right-border px-2">
+                    <label for="rating">Guest Rating</label>
+                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Choose Rating
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">0-2 Okay</button>
+                        <button class="dropdown-item" type="button">2-6 Fair</button>
+                        <button class="dropdown-item" type="button">6-7 Good</button>
+                        <button class="dropdown-item" type="button">7-8.5 Very Good</button>
+                        <button class="dropdown-item" type="button">8.5-10 Excellent</button>
+                    </div>
+                </div>
+                <div id="location" class="btn-group right-border px-2">
+                    <label for="location">Hotel Location</label>
+                    <input class="border border-0 text-center bg-transparent" list="locales" id="locations" size="8" name="Locations" placeholder="Choose Location" />
+                    <datalist id="locales">
+
+                    </datalist>
+                </div>
+                <div id="filters" class="btn-group rightborder pl-2">
+                    <label for="filters">More Filters</label>
+                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Select
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">Action</button>
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="body">
+        <div class="container-fluid">
+            <!-- MAP MODAL -->
+            <div class="row d-flex justify-content-between flex-wrap-nowrap py-1 ml-auto align-items-center">
+                <div id="map"><img
+                        src="http://www.urbanindy.com/wp-content/uploads/2012/11/zoomed-out-greenwood-street-map.png"
+                        alt="map">
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#mapModal">
+                        View Map
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="mapModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Map</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body map-modal" id="map-modal">
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=""></div>
+                <div class="mr-2">
+                    <span class="">Sort by</span>
+                    <div id="sortby" class="btn-group rightborder pl-2 bg-light">
+                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Our recommendations
+                        </button>
+                        <!-- SORTTTTTTT -->
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button" id="parking">Parking</button>
+                            <button class="dropdown-item" type="button" id="sauna">Sauna</button>
+                            <button class="dropdown-item" type="button" id="pool">Pool</button>
+                            <button class="dropdown-item" type="button" id="wifi">Wifi</button>
+                            <button class="dropdown-item" type="button" id="balcony">Balcony</button>
+                        </div>
+                    </div>
+                    <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div id="hotels">
+
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <script src="/js/assignment5.js"></script>
+</body>
+
+</html>

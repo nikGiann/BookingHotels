@@ -1,0 +1,270 @@
+* {
+    -webkit-border-radius: 0 !important;
+       -moz-border-radius: 0 !important;
+            border-radius: 0 !important;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+html, body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.white-bg{
+    background:#ffffff !important;
+}
+
+#header {
+    background-color: slategray;
+    padding: 1%;
+}
+
+.form-control {
+    padding: 0;
+    border-left: 0;
+}
+
+.searchbtn {
+    padding: 0%;
+}
+
+.magnglass {
+    padding: 0%;
+    border-right: 0 solid transparent;
+}
+
+.calendar {
+    padding: 1%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+#checkindt {
+    width: 10px;
+    height: auto;
+    background-color: blue;
+}
+
+#checkin {
+    font-size: small;
+    flex-grow: 2;
+    height: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#checkindate{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: medium;
+    text-align: center
+}
+
+#checkoutdt {
+    width: 10px;
+    height: auto;
+    background-color: orangered;
+}
+
+#checkout {
+    font-size: small;
+    flex-grow: 2;
+    height: 2.5rem;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+#checkoutdate {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: medium;
+    text-align: center;
+}
+
+.chevron-in {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chevron-out {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0%;
+    margin: 0;
+}
+
+.dashed {
+    border-style: dotted;
+    border-width: 1px;
+    border-color: rgba(0,0,0,0.1);
+    width: 100%;
+    margin: 1%;
+    color: rgba(0,0,0,0.5);
+}
+
+#price {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+
+#property {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#rating {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#location {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.right-border {
+    border-right: 1px solid gainsboro;
+}
+
+#map {
+    max-width: 204.44px;
+    max-height: 63px;
+    position: relative;
+    overflow: hidden;
+}
+
+#map img {
+    width: 100%;
+    height: auto;
+}
+
+
+img {
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#map .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#deals {
+    list-style: none;
+}
+
+.hotelmedia {
+    position: relative;
+}
+
+.hotelmedia i.fa {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.25rem;
+}
+
+.img-pagin {
+    position: absolute;
+    right: 1rem;
+    color: white;
+    padding: 0.25rem;
+    opacity: 70%;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+  }
+  .rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+     content: "\2605";
+     position: absolute;
+  }
+
+  .card-text .bg-success {
+    display: block;
+    max-width: 1.5rem;
+    min-width: 1.5rem;
+    text-align: center;
+    color: white;
+  }
+
+  .card-body.border-right{
+      display: flex;
+      flex-direction: column;
+  }
+
+ #body {
+     background-color: lightgray;
+ }
+
+ #deals li {
+     height: 25%;
+ }
+
+ #finalprice {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     align-items: center;
+ }
+
+ #map-modal {
+    width:100%;
+    height:400px;
+}
+
+::placeholder{
+    color: black;
+    opacity: .85;
+    font-size: small;
+}
+
+datalist { 
+    text-align-last: right; 
+}
+
+option { 
+    direction: rtl; 
+}
